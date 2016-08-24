@@ -1,0 +1,10 @@
+<div class="msg {{ myMsg ? 'usr' : '';}}" style="position:reletive;">
+  <div class="msg-img">
+    <img src="http://placehold.it/30x30">
+  </div>
+  <div class="msg-cont"> {{ data.text }} 
+  </div>
+  <div class="msg-time" style="">
+    <p><span ng-hide="myMsg">{{ data.account }},</span> <span style="color:gray"> {{ data.timestamp | date: 'hh:mm'}}</span></p>
+  </div>
+</div>
