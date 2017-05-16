@@ -2,11 +2,11 @@
 (function (angular, $, undefined) {
   'use strict';
   if ($.fn['nanoScroller'] === undefined) {
-    throw new Error("nanoScrollerJS is not defined in jQuery");
+    throw new Error('nanoScrollerJS is not defined in jQuery');
   }
   //jQuery must be used, cause angular method 'find' has different behavior
   if (angular.element !== $) {
-    throw new Error("Angular must use jQuery not jqLite");
+    throw new Error('Angular must use jQuery not jqLite');
   }
 
   var AS_ELEMENT = 1, AS_ATTRIBUTE = 0;
@@ -23,7 +23,7 @@
    * @param scrollableConfig.bottomMargin Available number of pixels from the bottom,
    *        in which it is considered that scroller is in bottom
    */
-  module.constant("scrollableConfig", {
+  module.constant('scrollableConfig', {
     template    : '<div class="{nanoClass}"><div class="{contentClass}" ng-transclude></div></div>',
     bottomMargin: 40
   });
@@ -32,12 +32,12 @@
    * Default configuration of the nanoScroller
    * @name nanoScrollerDefaults
    */
-  module.constant("nanoScrollerDefaults", {
+  module.constant('nanoScrollerDefaults', {
     nanoClass   : 'nano',
     contentClass: 'nano-content'
   });
-  module.directive("scrollable", createScrollableDirective(AS_ELEMENT));
-  module.directive("scrollable", createScrollableDirective(AS_ATTRIBUTE));
+  module.directive('scrollable', createScrollableDirective(AS_ELEMENT));
+  module.directive('scrollable', createScrollableDirective(AS_ATTRIBUTE));
 
   /**
    * Create directive 'scrollable' specified by variable `type`.
@@ -117,7 +117,7 @@
               },
               listener);
           }
-          scope.$on("$destroy", function () {
+          scope.$on('$destroy', function () {
             $nanoElement.nanoScroller({ destroy: true });
             $nanoElement = contentElement = parentElement = null;
           });
@@ -137,20 +137,20 @@
   function convertStringToValue(attr) {
     var result = {};
     angular.forEach(attr, function (value, key) {
-      if (key.indexOf("$") === 0) {
+      if (key.indexOf('$') === 0) {
         return;
       }
       switch (key) {
-        case "true":
+        case 'true':
           value = true;
           break;
-        case "false":
+        case 'false':
           value = false;
           break;
-        case "null":
+        case 'null':
           value = null;
           break;
-        case "class":
+        case 'class':
           return;
       }
       result[key] = value;
@@ -167,7 +167,7 @@
     if (!val) {
       return [];
     }
-    return val.replace(",", ";").split(";");
+    return val.replace(',', ';').split(';');
   }
 
   /**
@@ -177,8 +177,8 @@
    * @returns {String}
    */
   function format(str, params) {
-    return str.replace(new RegExp("{.*?}", "g"), function (variable) {
-      return params[variable.slice(1, -1)] || "";
+    return str.replace(new RegExp('{.*?}', 'g'), function (variable) {
+      return params[variable.slice(1, -1)] || '';
     });
   }
 

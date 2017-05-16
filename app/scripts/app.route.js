@@ -3,10 +3,10 @@
 
     angular
         .module('SSite')
-        .config(routerConfig);
+        .config(['$stateProvider', '$urlRouterProvider', routerConfig);
 
-    /** @ngInject */
     function routerConfig($stateProvider, $urlRouterProvider) {
+        
         $stateProvider
             .state('main', {
                 url: '/',

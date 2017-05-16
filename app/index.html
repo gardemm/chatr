@@ -11,124 +11,28 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/nanoscroller/bin/css/nanoscroller.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
   </head>
   <body ng-app="SSite">
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="container" ng-controller="MainCtrl">
-    <div style="opacity: 0;" class=" {{ showContent ? 'sc': '';}}">
-      <!-- yetti -->
-      <div class="modal" style="display: block;" ng-show="enableChat">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content" style="border-radius: 0; height: 409px;">
-            <div class="modal-header">
-              <button type="button" class="close" style="opacity:1; margin-top: 1px;" aria-hidden="true" ng-click="toggleChat()">
-                <img src="images/icn-close.png" style="width:18px; color: black;">
-              </button>
-              <button type="button" class="close" style="margin-right: 15px; opacity:1; margin-top: 1px;" aria-hidden="true">
-                <img src="images/icn-more.png" style="width:18px; color: black;">
-              </button>
-              <h4 class="modal-title">modal title</h4>
-            </div>
-            <div style="height:300px; padding: 0;" class="modal-body chat-body {{ enableUsers ? 'c0' : 'cc'; }}"  id="chat-scrollable" scrollable>
-              <div class="modal-header" style="background-color:white;">
-                <div class="msg-img" style="height:30px; width:30px; border-radius: 50%; overflow:hidden; float: left; margin-left: 3px;">
-                    <img src="http://placehold.it/30x30">
-                  </div>
-                  <div class="msg-img" style="height:30px; width:30px; border-radius: 50%; overflow:hidden; float: left;  margin-left: 8px;">
-                    <img src="http://placehold.it/30x30">
-                  </div>
-                  <div class="msg-img" style="height:30px; width:30px; border-radius: 50%; overflow:hidden; float: left;  margin-left: 8px;">
-                    <img src="http://placehold.it/30x30">
-                  </div>
-                  <div class="msg-img" style="height:30px; width:30px; border-radius: 50%; overflow:hidden; float: left;  margin-left: 8px;">
-                    <img src="http://placehold.it/30x30">
-                  </div>
-                  <div class="msg-img" style="height:30px; width:30px; border-radius: 50%; overflow:hidden; float: left;  margin-left: 8px;">
-                    <img src="http://placehold.it/30x30">
-                  </div>
-                  <div class="msg-img" style="height:30px; width:30px; border-radius: 50%; overflow:hidden; float: left;  margin-left: 8px;">
-                    <img src="http://placehold.it/30x30">
-                  </div>
-                  <div class="msg-img" ng-click="toggleUser()" style="height:30px; width:30px; border-radius: 50%; overflow:hidden; float: left;  margin-left: 8px; border: 1px solid gray; text-align: center; font-weight:bold; padding:4px;">
-                    9
-                  </div>
-              </div>
-              <div style="padding: 18px;" id="body-message">
-              </div>
-            </div>
-            <div style="height:300px; padding: 0; top: -300px;" class="modal-body chat-body {{ enableUsers ? 'cc' : 'c0'; }}" id="chat-scrollable-users" scrollable>
-              <div class="modal-header" style="background-color:white; padding: 0;">
-                <div class="form-group has-feedback" style="margin-bottom:0;">
-                   <input type="text" class="form-control" id="inputChat" aria-describedby="inpupMessage" style="height:60px; border-radius:0; padding-left:52.5px; font-size: 18px;"
-                   placeholder="Search for people"
-                   focus-on="searchForPeople" ng-model="searchUsr">
-                  <a href="" ng-click="toggleUser();" class="form-control-feedback" style="padding-top:12px; margin-right:10px; color: black; " aria-hidden="true">
-                    <img src="images/icn-arrow-back.png" style="width:21px;">
-                  </a>
-                  <a href="" ng-click="pushSearch()" style="top: 15px; position: absolute; color: #313131; left:17px; font-size: 20px;">
-                    <i class="fa fa-search"></i>
-                  </a>
-                </div>
-              </div>
-              <div style="padding: 18px;" id="body-message-users">
-                <div ng-animate="'animate'" ng-repeat="user in users | filter:searchUsr">
-                  <div class="usr" style="position:reletive; padding-bottom: 8px;">
-                    <div class="usr-img">
-                      <img src="http://placehold.it/30x30">
-                    </div>
-                    <div class="usr-cont"> {{ user }} </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer" style="padding:0; position: absolute; top: 356px; width: 100%;">
-              <div class="form-group has-feedback" style="margin-bottom:0;">
-                <input type="text" class="form-control" id="inputChat" aria-describedby="inpupMessage" style="height:50px; border-radius:0;">
-                <div class="form-control-feedback" style="padding-top:7px; margin-right:10px; z-index: 5;" aria-hidden="true">
-                  <a href=""><img src="images/icn-photo.png" style="width:22px;">
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="chat-usr" style="right: 20px;">
-        <a href="" ng-click="toggleChat();">
-          <img src="http://placehold.it/100x100">
-        </a>
-      </div>
-    </div>
-
-    </div>
-    
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+    <div class="container" ui-view></div>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/plugins.js -->
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
@@ -153,12 +57,12 @@
     <script src="/bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
     <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js"></script>
-    <script src="scripts/scrollable.js"></script>
+    <script src="/bower_components/angular-nanoscroller/scrollable.js"></script>
+    <!-- <script src="scripts/scrollable.js"></script> -->
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/app.js -->
     <script src="scripts/app.module.js"></script>
-    <script src="scripts/app.config.js"></script>
     <script src="scripts/app.route.js"></script>
     <script src="scripts/app.run.js"></script>
     <script src="scripts/pages/main/main-ctrl.js"></script>

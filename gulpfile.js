@@ -24,7 +24,14 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', () => {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src(['app/scripts/**/*.js'])
+      // 'app/scripts/app.config.js',
+      // 'app/scripts/app.route.js',
+      // 'app/scripts/app.run.js',
+      // 'app/scripts/scrollable.js',
+      // 'app/scripts/directive/**/*.js',
+      // 'app/scripts/pages/**/*.js',
+      // 'app/scripts/service/**/*.js'
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.babel())

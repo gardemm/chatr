@@ -9,7 +9,7 @@
         var service = this;
 
         service.data = {};
-        service.cookie_name = "X-Access-Token";
+        service.cookie_name = 'X-Access-Token';
 
         service.getMessages = function (user_id) {
             var req = {};

@@ -4,7 +4,8 @@
   </div>
   <div class="msg-cont"> {{ data.text }} 
   </div>
-  <div class="msg-time" style="">
+  <span style="clear:both; float:right;"></span> 
+  <div class="msg-time">
     <p><span ng-hide="myMsg">{{ data.account }},</span> <span style="color:gray"> {{ data.timestamp | date: 'hh:mm'}}</span></p>
   </div>
 </div>

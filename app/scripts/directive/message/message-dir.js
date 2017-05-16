@@ -5,7 +5,7 @@
 	.module('SSite')
 	.directive('message', function () {
 	  return {
-			restrict: "E",
+			restrict: 'E',
 			scope: {
 				'text': '=',
 				'timestamp': '=',
