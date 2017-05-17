@@ -13,13 +13,13 @@
         };
     });
 
-    app.factory('focus', function($rootScope, $timeout) {
+    app.factory('focus',['$rootScope', '$timeout', function($rootScope, $timeout) {
         return function(name) {
             $timeout(function() {
                 $rootScope.$broadcast('focusOn', name);
             }, 30);
         }
-    });
+    }]);
 
     app.directive('autofocus', ['$timeout', function($timeout) {
         return {

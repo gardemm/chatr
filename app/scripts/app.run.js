@@ -3,7 +3,7 @@
 
     angular
         .module('SSite')
-        .run(runBlock);
+        .run(['$log', '$rootScope', runBlock]);
 
     function runBlock($log, $rootScope) {
         $rootScope.$on('$stateChangeStart', 
@@ -12,4 +12,4 @@
 			});
     }
 
-}());
+})();

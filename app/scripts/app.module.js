@@ -9,7 +9,8 @@
 		'ngMessages', 
 		'ngAria', 
 		'ui.router',
-		'sun.scrollable'
+		'sun.scrollable',
+		'templates'
 	]);
 
-}());
+})();

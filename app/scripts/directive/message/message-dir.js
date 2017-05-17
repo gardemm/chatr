@@ -14,14 +14,14 @@
 				'data': '='
 			},
 			templateUrl: 'scripts/directive/message/message.html',
-			controller: function ($scope) {
+			controller: ['$scope', function ($scope) {
 				$scope.myMsg = false;
 
 				if($scope.data.account == '1234') {
 					$scope.myMsg = true;
 				}
 				console.log($scope.data);
-			}
+			}]
 	  }
 	});
 	
